@@ -23,7 +23,9 @@ Tools for managing creation of UK Radio Station jsons in format required for [Mo
  - playlist-images folder - image for playlist item
 
 **moOde import commands etc.. :-**
- - sudo moodeutl -q "delete from cfg_radio where id >= '500'"
- - sudo python /var/www/util/station_manager.py --import
-   /home/pi/stations.zip
- - sudo moodeutl -u | tee /home/pi/radio-online.txt
+ * Delete current user radio stations, those < 500 are moode sourced radio stations which shouldn't be removed
+   * sudo moodeutl -q "delete from cfg_radio where id >= '500'"
+ * Import our user sourced radio stations (stations.zip)
+   * sudo python /var/www/util/station_manager.py --import /home/pi/stations.zip
+ * stream test of each of our user stations, radio-online.txt
+   * sudo moodeutl -u | tee /home/pi/radio-online.txt
